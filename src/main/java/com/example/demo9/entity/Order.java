@@ -23,6 +23,7 @@ public class Order extends BaseTimeEntity {
   @Column(name = "order_id")
   private Long id;
 
+  @Builder.Default
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
   private List<OrderItem> orderItems = new ArrayList<>();
 
