@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/exampleLayout}">
+
+<th:block layout:fragment="script">
+
+  <meta name="_csrf" th:content="${_csrf?.token}"/>
+  <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+  <script th:inline="javascript">
+    function fCheck() {
+      const token = $("meta[name='_csrf']").attr("content");
+      const header = $("meta[name='_csrf_header']").attr("content");
+
+      let formData = new FormData();
+      formData.append("fName", document.getElementById("fName").files[0]);
+
+      $.ajax({
+        url  : "excelTransfer",
+        type : "post",
+        data : formData,
+        processData: false,
+        contentType: false,
+        beforeSend : function(xhr) { xhr.setRequestHeader(header, token); },
+        success:function(res) {
+          if(res != "0") {
+            alert("처리완료");
+          }
+          else alert("처리 실패~~");
+        },
+        error : function() { alert("전송오류!"); }
+      });
+    }
+  </script>
+</th:block>
+
+<div layout:fragment="content" class="container text-center">
+  <form name="myform" method="post">
+    <h2>엑셀 변환 연습</h2>
+    <div>
+      <hr/>
+      <div class="input-group">
+        <div class="input-group-text">변환할 파일(csv->MysqlDB)</div>
+        <input type="file" name="fName" id="fName" class="form-control" accept=".csv"/>
+        <input type="button" value="변환후DB저장" onclick="fCheck()" class="btn btn-success"/>
+      </div>
+      <hr/>
+      <a th:href="@{/}" class="btn btn-success">홈으로</a>
+    </div>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf?.token}" />
+  </form>
+  <hr/>
+  <h2>Apache POI 라이브러리</h2>
+  <div>Apache POI(Poor Obfuscation Implementation) : Java 프로그래밍 언어를 사용하여 Microsoft Office 파일 형식을 읽고 쓸 수 있게 해주는 오픈소스 라이브러리입니다. 주로 Excel, Word, PowerPoint 등의 파일을 처리하는 데 사용됩니다.</div>
+  <form method="post" th:action="@{/study/excel/excelUpload}" enctype="multipart/form-data">
+    <input type="file" name="file" class="form-control" accept=".xls,.xlsx"/>
+    <button type="submit" class="btn btn-success">Excel Upload</button>
+    <div th:if="${message}" th:text="${message}"></div>
+  </form>
+  <hr/>
+
+  <h2>Excel파일로 다운로드</h2>
+  <form method="post" th:action="@{/study/excel/excelDownload}">
+    <input type="submit" valuie="Excel Download" class="btn btn-primary" />
+  </form>
+  <div th:if="${downloadMessage}" th:text="${downloadMessage}"></div>
+</div>
+
+</html>
