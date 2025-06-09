@@ -27,6 +27,10 @@ Click [여기](https://www.naver.com)
 ### 그림연습
 ![강아지](http://49.142.157.251:9090/springProject3/hotelThumbnail/null_250506015455_%EC%8F%A0%EB%B9%84%EC%B9%98%20%EC%A7%84%EB%8F%84%20%EB%A6%AC%EC%A1%B0%ED%8A%B81.jpg)
 ---
+체크박스(To-do 리스트)
+- [x] A 기능 완료
+- [ ] B 기능 진행중
+---
 ### 표연습
 |기능|설명|상태|
 |----|----|----|
