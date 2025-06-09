@@ -10,6 +10,8 @@
 ---
 ### 좋아하는 과일(순서가 없는 목록)
 * 사과
+  * 홍옥
+  * 부사
 * 배
 * 바나나
 ---
@@ -21,4 +23,7 @@
 ### 링크
 Click [여기](https://www.naver.com)
 [위드펫](http://49.142.157.251:9090/springProject3/)
+---
+### 그림연습
+![강아지](http://49.142.157.251:9090/springProject3/hotelThumbnail/null_250506015455_%EC%8F%A0%EB%B9%84%EC%B9%98%20%EC%A7%84%EB%8F%84%20%EB%A6%AC%EC%A1%B0%ED%8A%B81.jpg)
 ---
