@@ -39,6 +39,7 @@ Click [여기](https://www.naver.com)
 |자료실|파일올리기/다운로드|진행중|- [x]|
 |관리자페이지|회원관리/매표관리|작업중|- [ ]|
 ---
-배지(Shields.io 활용)
+배지(Shields.io 활용 - 'version-번호-색깔')
 ![version](https://img.shields.io/badge/version-1.2.0-red)
+![license](https://img.shields.io/badge/license-MIT-green)
 ---
