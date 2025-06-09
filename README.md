@@ -54,5 +54,7 @@ Click [여기](https://www.naver.com)
 한줄코드 `한줄짜리 코드`
 코드블록 (여러줄) :
 <pre>```여러줄 코드입니다.
-이곳은 여러줄 코드 입니다.```</pre>
+이곳은 여러줄 코드 입니다.
+ java System.out.println("Hellow Java");
+ ```</pre>
 
